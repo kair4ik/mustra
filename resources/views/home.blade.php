@@ -83,32 +83,6 @@
                             </tr>
                             </tbody>
                         </table>
-
-                    Таблица для прототипа
-                        <table class="table">
-                            <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Дата</th>
-                                <th scope="col">Подьем 7:30</th>
-                                <th scope="col">Общий итог</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>09.02.19</td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Итог</th>
-                                <td></td>
-                                <td><button type="button" class="btn btn-info">100%</button></td>
-                                <td><button type="button" class="btn btn-info">90% (среднее арифметическое)</button></td>
-                            </tr>
-                            </tbody>
-                        </table>
                 </div>
             </div>
 

@@ -20,4 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/create', 'MustraController@create')->name('create');
 
+Route::post('/create_list','MustraController@create_list');
+
 

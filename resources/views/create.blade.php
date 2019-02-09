@@ -18,17 +18,21 @@
                         </div>
                     @endif
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
-                            </div>
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Количество дней</option>
-                                <option value="1">30 дней</option>
-                                <option value="2">50 дней</option>
-                                <option value="3">100 дней</option>
-                            </select>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Имя списка</label>
+                            <input type="text" class="form-control" id="list_name" placeholder="Введите имя">
                         </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Дата начала (01.01.2019)</label>
+                            <input type="text" class="form-control" id="date_start" placeholder="Выберите дату">
+                        </div>
+
+                        <button type="button" id="step1" class="btn btn-primary">Далее</button>
+
+                        <br>
+                        <br>
 
                         <table class="table">
                             <thead class="thead-dark">
@@ -48,12 +52,42 @@
                             </tr>
                             </tbody>
                         </table>
+
                 </div>
             </div>
 
         </div>
     </div>
+    <script>
 
+        $( document ).ready(function() {
+            $("#date_start").mask("99.99.9999");
+
+
+            $("#step1").click(function () {
+
+                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+                    $.ajax({
+                        url: '/create_list',
+                        type: 'POST',
+
+                        data: {_token: CSRF_TOKEN},
+                        dataType: 'JSON',
+                        beforeSend: function() {
+                            console.log("before");
+                        },
+                        complete: function(data){
+                           console.log(data);
+                        }
+
+                    });
+
+            });
+
+        });
+
+    </script>
 
 </div>
 @endsection

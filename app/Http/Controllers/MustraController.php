@@ -20,4 +20,9 @@ class MustraController extends Controller
 //                'date'=>$date
             ]);
     }
+
+    public function create_list()
+    {
+        return "responce from server";
+    }
 }

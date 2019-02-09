@@ -86,8 +86,12 @@ class Task extends Model
         return $result;
     }
 
-    public function getDescBy($status_id)
+    static public function getDescBy($status_id)
     {
-
+        $model = Status::find($status_id);
+        if (isset($model)) {
+            return $model->status;
+        }
+        return "";
     }
 }

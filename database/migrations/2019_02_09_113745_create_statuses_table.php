@@ -17,6 +17,7 @@ class CreateStatusesTable extends Migration
             $table->increments('id');
             $table->integer('type')->nullable();
             $table->string('status')->nullable();
+            $table->string('color')->nullable();
         });
     }
 

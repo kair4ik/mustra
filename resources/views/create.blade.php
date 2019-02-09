@@ -17,7 +17,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                        <input type="text" class="form-control" id="list_id" placeholder="" value="{{$list->id}}">
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Имя списка</label>
@@ -25,33 +25,21 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Дата начала (01.01.2019)</label>
-                            <input type="text" class="form-control" id="date_start" placeholder="Выберите дату">
+                            <label for="exampleInputEmail1">Дата начала </label>
+                            <input type="text" class="form-control" id="date_start" placeholder="Выберите дату" value="{{$list->date_start}}">
                         </div>
 
-                        <button type="button" id="step1" class="btn btn-primary">Далее</button>
+                        {{--<button type="button" id="step1" class="btn btn-primary">Далее</button>--}}
+
+                        Список задач:
 
                         <br>
                         <br>
 
-                        <table class="table">
-                            <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Дата</th>
-                                <th scope="col">Подьем 7:30</th>
-                                <th scope="col">Общий итог</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>09.02.19</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            </tbody>
-                        </table>
+
+                        <input type="text" class="form-control" id="list_name" placeholder="Введите задачу">
+                        <button type="button" id="add_task" class="btn btn-primary">Добавить задачу</button>
+
 
                 </div>
             </div>
@@ -61,12 +49,12 @@
     <script>
 
         $( document ).ready(function() {
+
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             $("#date_start").mask("99.99.9999");
 
 
             $("#step1").click(function () {
-
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
                     $.ajax({
                         url: '/create_list',
@@ -80,9 +68,24 @@
                         complete: function(data){
                            console.log(data);
                         }
-
                     });
+            });
 
+            $("#add_task").click(function () {
+
+                $.ajax({
+                    url: '/create_list',
+                    type: 'POST',
+
+                    data: {_token: CSRF_TOKEN},
+                    dataType: 'JSON',
+                    beforeSend: function() {
+                        console.log("before");
+                    },
+                    complete: function(data){
+                        console.log(data);
+                    }
+                });
             });
 
         });

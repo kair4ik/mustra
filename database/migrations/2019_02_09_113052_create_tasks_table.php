@@ -16,10 +16,10 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('list_id');
-            $table->string('name');
-            $table->timestamp('date');
-            $table->integer('status_id');
+            $table->string('list_id')->nullable();
+            $table->string('name')->nullable();
+            $table->timestamp('date')->nullable();
+            $table->integer('status_id')->nullable();
 
             $table->timestamps();
         });

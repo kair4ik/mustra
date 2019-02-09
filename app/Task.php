@@ -20,6 +20,8 @@ class Task extends Model
         return $datesArray;
     }
 
+
+
     public function getLastDay()
     {
         $dates = $this->getDatesArray();
@@ -30,6 +32,18 @@ class Task extends Model
     static public function getTasks($list_id)
     {
         $tasks = self::where('list_id', '=', $list_id)->get();
+        return $tasks;
+    }
+
+    public function getTasks2()
+    {
+        $tasks = self::where('list_id', '=', $this->list_id)->get();
+        return $tasks;
+    }
+
+    public function getTasksForDate()
+    {
+        $tasks = self::where('date', '=', $this->list_id)->get();
         return $tasks;
     }
 
@@ -48,5 +62,13 @@ class Task extends Model
         }
 
         return $result;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDays(): int
+    {
+        return $this->days;
     }
 }

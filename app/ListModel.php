@@ -10,5 +10,9 @@ class ListModel extends Model
 
     protected $fillable = ['name', 'date_start','author_id','date_end'];
 
+    public function getDayFromDate($days)
+    {
+        return date('d.m.Y', strtotime($this->date_start. ' + '.$days.' days'));
+    }
 
 }

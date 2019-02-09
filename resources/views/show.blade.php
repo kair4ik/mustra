@@ -19,23 +19,25 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Дата</th>
-                                <th scope="col">Подьем 7:30</th>
-                                <th scope="col">Зарядка</th>
-                                <th scope="col">Пробежка</th>
-                                <th scope="col">Англиский</th>
+                                @foreach($tasks as $task)
+                                    {!!  "<th scope=\"col\">".$task ."</th>"!!}
+                                @endforeach
                                 <th scope="col">Общий итог</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @for($i=0; $i <= 10; $i++)
+
                             <tr>
-                                <th scope="row">1</th>
-                                <td>09.02.19</td>
+                                <th scope="row">{{$i+1}}</th>
+                                <td>{{$list->getDayFromDate($i)}}</td>
                                 <td><button type="button" class="btn btn-success">+</button></td>
                                 <td><button type="button" class="btn btn-success">+</button></td>
                                 <td><button type="button" class="btn btn-danger">-</button></td>
                                 <td><button type="button" class="btn btn-success">+</button></td>
                                 <td><button type="button" class="btn btn-danger">-</button></td>
                             </tr>
+                            @endfor
                             <tr>
                                 <th scope="row">2</th>
                                 <td>10.02.19</td>
@@ -45,33 +47,7 @@
                                 <td><button type="button" class="btn btn-success">+</button></td>
                                 <td><button type="button" class="btn btn-success">+</button></td>
                             </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>11.02.19</td>
-                                <td><button type="button" class="btn btn-danger">-</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-danger">-</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>12.02.19</td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>13.02.19</td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                            </tr>
+
                             <tr>
                                 <th scope="row">Итог</th>
                                 <td></td>

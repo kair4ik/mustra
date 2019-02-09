@@ -37,7 +37,7 @@
                                 @endphp
                                     <td>
                                     @if(!empty($taskCur))
-                                    <button type="button" class="btn btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}">.</button>
+                                    <button type="button" class="btn btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}">о</button>
                                     @endif
                                     </td>
                                 @endforeach

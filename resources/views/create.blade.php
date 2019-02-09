@@ -17,11 +17,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        <input type="text" class="form-control" id="list_id" placeholder="" value="{{$list->id}}">
+                        <input type="hidden" class="form-control" id="list_id" placeholder="" value="{{$list->id}}">
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Имя списка</label>
-                            <input type="text" class="form-control" id="list_name" placeholder="Введите имя">
+                            <input type="text" class="form-control" id="list_name" placeholder="Введите имя" value="{{$list->name}}">
                         </div>
 
                         <div class="form-group">
@@ -29,12 +29,12 @@
                             <input type="text" class="form-control" id="date_start" placeholder="Выберите дату" value="{{$list->date_start}}">
                         </div>
 
-                        {{--<button type="button" id="step1" class="btn btn-primary">Далее</button>--}}
                         Список задач:
                         <div id="tasks_list">
-
+                            @foreach($tasks as $task)
+                               {!!  "<b>".$task ."</b><br>"!!}
+                            @endforeach
                         </div>
-
 
                         <br>
                         <br>
@@ -44,7 +44,7 @@
                         <button type="button" id="add_task" class="btn btn-primary">Добавить задачу</button>
                         <br>
                         <br>
-                        <button type="button" id="add_task" class="btn btn-primary">Сохранить  муштра-список</button>
+                        <button type="button" id="save_list" class="btn btn-primary">Сохранить  муштра-список</button>
                 </div>
             </div>
 
@@ -55,7 +55,7 @@
         $( document ).ready(function() {
 
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            $("#date_start").mask("99.99.9999");
+            $("#date_start").mask("9999.99.99");
 
 
             $("#step1").click(function () {
@@ -76,6 +76,8 @@
             });
 
             $("#add_task").click(function () {
+
+
                 var taskName = $("#task_name").val();
                 var listId = $("#list_id").val();
 
@@ -95,6 +97,41 @@
                         console.log(data);
                     }
                 });
+
+            });
+
+            $("#save_list").click(function () {
+
+
+                var listName = $("#list_name").val();
+                var taskName = $("#task_name").val();
+                var listId = $("#list_id").val();
+
+                if (listName !== "") {
+
+                    $.ajax({
+                        url: '/save_list',
+                        type: 'POST',
+
+                        data: {_token: CSRF_TOKEN,listId:listId,listName:listName},
+                        dataType: 'JSON',
+                        beforeSend: function() {
+                            console.log("before");
+                        },
+                        success: function(data){
+
+                            $("#tasks_list").append(data +"<br>");
+                            $("#task_name").val("");
+                            if (data == "success") {
+                                window.location.href = "/home"
+                            }
+                            console.log(data);
+                        }
+                    });
+                } else {
+                    alert("Введите название списка");
+                }
+
             });
 
         });

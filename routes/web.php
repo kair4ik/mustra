@@ -18,9 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/create', 'MustraController@create')->name('create');
+Route::get('/create_form', 'MustraController@create_form');
+Route::get('/create/{id}', 'MustraController@create');
 
-Route::post('/create_list','MustraController@create_list');
+
+Route::post('/save_list','MustraController@save_list');
 Route::post('/create_task','MustraController@create_task');
 
 

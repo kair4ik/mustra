@@ -25,7 +25,7 @@
         <a class="navbar-brand" href="{{ url('/home') }}">
             Список
         </a>
-        <a class="navbar-brand" href="{{ url('/create') }}">
+        <a class="navbar-brand" href="{{ url('/create_form') }}">
             Создание
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

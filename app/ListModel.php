@@ -8,7 +8,7 @@ class ListModel extends Model
 {
     protected $table = 'lists';
 
-    protected $fillable = ['name', 'date_start'];
+    protected $fillable = ['name', 'date_start','author_id','date_end'];
 
 
 }

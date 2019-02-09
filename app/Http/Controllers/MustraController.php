@@ -10,6 +10,7 @@ class MustraController extends Controller
 {
     public function create()
     {
+        echo  "gggg";
 
 //        var_dump($datesArray);
 
@@ -25,10 +26,17 @@ class MustraController extends Controller
         return $list->id;
     }
 
-    public function create_task()
+    public function create_task(Request $request)
     {
-        $list =  Task::create(array('name' => 'Fist lsit', 'date_start'=>'01.01.2019'));
-        return $list->id;
+        $taskName = "";
+        var_dump($request->attributes);
+        $task = new Task();
+        $dates = $task->getDatesArray();
+        foreach ($dates as $date){
+           Task::create(array('name' => $taskName, 'date'=>$date));
+        }
+
+        return $taskName;
     }
 
 }

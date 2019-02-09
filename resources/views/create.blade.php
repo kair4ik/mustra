@@ -37,7 +37,7 @@
                         <br>
 
 
-                        <input type="text" class="form-control" id="list_name" placeholder="Введите задачу">
+                        <input type="text" class="form-control" id="task_name" placeholder="Введите задачу">
                         <button type="button" id="add_task" class="btn btn-primary">Добавить задачу</button>
 
 
@@ -72,12 +72,13 @@
             });
 
             $("#add_task").click(function () {
+                var taskName = $("#task_name").value;
 
                 $.ajax({
-                    url: '/create_list',
+                    url: '/create_task',
                     type: 'POST',
 
-                    data: {_token: CSRF_TOKEN},
+                    data: {_token: CSRF_TOKEN,taskName:taskName},
                     dataType: 'JSON',
                     beforeSend: function() {
                         console.log("before");

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Муштра список №1</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,75 +14,98 @@
                         </div>
                     @endif
 
-                    Login!
-
-                        <span class="badge badge-primary">Главный</span>
-                        <span class="badge badge-secondary">Вторичный</span>
-                        <span class="badge badge-success">Успех</span>
-                        <span class="badge badge-danger">Опасность</span>
-                        <span class="badge badge-warning">Предупреждение</span>
-                        <span class="badge badge-info">Инфо</span>
-                        <span class="badge badge-light">Светлый</span>
-                        <span class="badge badge-dark">Темный</span>
-
                         <table class="table">
                             <thead class="thead-dark">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Имя</th>
-                                <th scope="col">Фамилия</th>
-                                <th scope="col">Username</th>
+                                <th scope="col">Дата</th>
+                                <th scope="col">Подьем 7:30</th>
+                                <th scope="col">Зарядка</th>
+                                <th scope="col">Пробежка</th>
+                                <th scope="col">Англиский</th>
+                                <th scope="col">Общий итог</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <td>09.02.19</td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-danger">-</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-danger">-</button></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
+                                <td>10.02.19</td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-primary">-</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
+                                <td>11.02.19</td>
+                                <td><button type="button" class="btn btn-danger">-</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-danger">-</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>12.02.19</td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>13.02.19</td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Итог</th>
+                                <td></td>
+                                <td><button type="button" class="btn btn-info">80%</button></td>
+                                <td><button type="button" class="btn btn-info">100%</button></td>
+                                <td><button type="button" class="btn btn-info">80%</button></td>
+                                <td><button type="button" class="btn btn-info">100%</button></td>
+                                <td><button type="button" class="btn btn-info">90% (среднее арифметическое)</button></td>
                             </tr>
                             </tbody>
                         </table>
 
+                    Таблица для прототипа
                         <table class="table">
-                            <thead class="thead-light">
+                            <thead class="thead-dark">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Имя</th>
-                                <th scope="col">Фамилия</th>
-                                <th scope="col">Username</th>
+                                <th scope="col">Дата</th>
+                                <th scope="col">Подьем 7:30</th>
+                                <th scope="col">Общий итог</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <td>09.02.19</td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
+                                <td><button type="button" class="btn btn-success">+</button></td>
                             </tr>
                             <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
+                                <th scope="row">Итог</th>
+                                <td></td>
+                                <td><button type="button" class="btn btn-info">100%</button></td>
+                                <td><button type="button" class="btn btn-info">90% (среднее арифметическое)</button></td>
                             </tr>
                             </tbody>
                         </table>

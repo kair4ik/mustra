@@ -16,11 +16,12 @@ class CreateListsTable extends Migration
         Schema::create('lists', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->integer('list_status_id');
+            $table->string('name');
             $table->timestamp('date_start');
             $table->timestamp('date_end');
             $table->integer('progress');
             $table->integer('author_id');
-            $table->integer('list_status_id');
             $table->integer('succesful_execution');
 
             $table->timestamps();

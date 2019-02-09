@@ -21,6 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/create_form', 'MustraController@create_form');
 Route::get('/create/{id}', 'MustraController@create');
 
+Route::get('/view/{id}', 'MustraController@show');
+
+
 
 Route::post('/save_list','MustraController@save_list');
 Route::post('/create_task','MustraController@create_task');

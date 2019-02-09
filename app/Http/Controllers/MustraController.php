@@ -34,6 +34,18 @@ class MustraController extends Controller
             ]);
     }
 
+    public function show(Request $request)
+    {
+        $list_id = $request->id;
+        $tasks = Task::getUniqueTasks($list_id);
+
+        $list = ListModel::find($list_id);
+        return view('show',[
+            'list'=>$list,
+            'tasks' => $tasks
+        ]);
+    }
+
     public function save_list(Request $request)
     {
         $listId = $request->listId;

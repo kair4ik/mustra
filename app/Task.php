@@ -90,7 +90,7 @@ class Task extends Model
     {
         $model = Status::find($status_id);
         if (isset($model)) {
-            return $model->status;
+            return $model->color;
         }
         return "";
     }

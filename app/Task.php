@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Task extends Model
 {
+
     protected $fillable = ['list_id', 'name', 'date'];
     private $days = 10;
 
@@ -70,5 +71,23 @@ class Task extends Model
     public function getDays(): int
     {
         return $this->days;
+    }
+
+    static public function getTaskByParam($name, $date, $list_id)
+    {
+        $result = DB::select(
+            'select * from tasks where list_id = :list_id  and  date = :date and name = :name;',
+                [
+                'list_id'=>$list_id,
+                'date'=>$date,
+                'name'=>$name,
+                ]);
+
+        return $result;
+    }
+
+    public function getDescBy($status_id)
+    {
+
     }
 }

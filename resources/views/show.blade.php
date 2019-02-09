@@ -20,7 +20,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Дата</th>
                                 @foreach($tasks as $task)
-                                    {!!  "<th scope=\"col\">".$task ."</th>"!!}
+                                    {!!  "<th scope=\"col\">".$task."</th>"!!}
                                 @endforeach
                                 <th scope="col">Общий итог</th>
                             </tr>
@@ -30,24 +30,19 @@
 
                             <tr>
                                 <th scope="row">{{$i+1}}</th>
-                                <td>{{$list->getDayFromDate($i)}}</td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-danger">-</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-danger">-</button></td>
+                                <td>{{$date = $list->getDayFromDate($i)}}</td>
+                                @foreach($tasks as $name)
+                                @php
+                                 $taskCur  = \App\Task::getTaskByParam($name,$date, $list->id);
+                                @endphp
+                                    <td>
+                                    @if(!empty($taskCur))
+                                    <button type="button" class="btn btn-success">{{$taskCur[0]->status_id}}</button>
+                                    @endif
+                                    </td>
+                                @endforeach
                             </tr>
                             @endfor
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>10.02.19</td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-primary">-</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                                <td><button type="button" class="btn btn-success">+</button></td>
-                            </tr>
-
                             <tr>
                                 <th scope="row">Итог</th>
                                 <td></td>

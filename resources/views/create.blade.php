@@ -30,8 +30,11 @@
                         </div>
 
                         {{--<button type="button" id="step1" class="btn btn-primary">Далее</button>--}}
-
                         Список задач:
+                        <div id="tasks_list">
+
+                        </div>
+
 
                         <br>
                         <br>
@@ -39,8 +42,9 @@
 
                         <input type="text" class="form-control" id="task_name" placeholder="Введите задачу">
                         <button type="button" id="add_task" class="btn btn-primary">Добавить задачу</button>
-
-
+                        <br>
+                        <br>
+                        <button type="button" id="add_task" class="btn btn-primary">Сохранить  муштра-список</button>
                 </div>
             </div>
 
@@ -72,18 +76,22 @@
             });
 
             $("#add_task").click(function () {
-                var taskName = $("#task_name").value;
+                var taskName = $("#task_name").val();
+                var listId = $("#list_id").val();
 
                 $.ajax({
                     url: '/create_task',
                     type: 'POST',
 
-                    data: {_token: CSRF_TOKEN,taskName:taskName},
+                    data: {_token: CSRF_TOKEN,listId:listId,taskName:taskName},
                     dataType: 'JSON',
                     beforeSend: function() {
                         console.log("before");
                     },
-                    complete: function(data){
+                    success: function(data){
+
+                        $("#tasks_list").append(data +"<br>");
+                        $("#task_name").val("");
                         console.log(data);
                     }
                 });

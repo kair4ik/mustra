@@ -19,7 +19,7 @@ class CreateTasksTable extends Migration
             $table->string('list_id')->nullable();
             $table->string('name')->nullable();
             $table->timestamp('date')->nullable();
-            $table->integer('status_id')->nullable();
+            $table->integer('status_id')->nullable()->default(0);
 
             $table->timestamps();
         });

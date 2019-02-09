@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    protected $fillable = ['name', 'date'];
+    protected $fillable = ['list_id', 'name', 'date'];
 
     public function getDatesArray()
     {

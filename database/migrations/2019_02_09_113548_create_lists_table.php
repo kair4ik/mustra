@@ -16,7 +16,7 @@ class CreateListsTable extends Migration
         Schema::create('lists', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('list_status_id')->nullable();
+            $table->integer('list_status_id')->nullable()->default(0);
             $table->string('name')->nullable();
             $table->timestamp('date_start')->nullable();
             $table->timestamp('date_end')->nullable();

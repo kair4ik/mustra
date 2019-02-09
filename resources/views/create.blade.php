@@ -5,7 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+
+
+
                 <div class="card-header">Муштра список №1</div>
+
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,7 +17,19 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    Таблица для прототипа
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Количество дней</option>
+                                <option value="1">30 дней</option>
+                                <option value="2">50 дней</option>
+                                <option value="3">100 дней</option>
+                            </select>
+                        </div>
+
                         <table class="table">
                             <thead class="thead-dark">
                             <tr>

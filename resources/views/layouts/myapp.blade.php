@@ -15,6 +15,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{ asset('js/jquery.maskedinput.js') }}" defer></script>
 
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">

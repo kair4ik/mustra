@@ -155,4 +155,22 @@ class Task extends Model
         return $totalStatus;
     }
 
+    static public function taskIsAvailable($task_id)
+    {
+        $yesterday = date("Y-m-d", strtotime( '-1 days' ) );
+        $today = date("Y-m-d", time() );
+
+        $task = self::find($task_id);
+
+        $date = date_create($task->date);
+        $taskDate = date_format($date, 'Y-m-d');
+
+        if ($taskDate == $today || $taskDate == $yesterday) {
+            return true;
+        }
+        return false;
+
+    }
+
+
 }

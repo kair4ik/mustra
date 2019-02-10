@@ -1,10 +1,10 @@
 @extends('layouts.myapp')
 
 @section('content')
-
-    <style>
-
-    </style>
+{{--
+Теперь надо как-то сделать так, чтобы
+Юзер мог отмечать кружки только за вчера и сегодня
+--}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -40,7 +40,19 @@
                                 @endphp
                                     <td align="center">
                                     @if(!empty($taskCur))
-                                    <button id="checkBtn" type="button" class="btn rounded-circle btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}" onclick="changeColor({{$taskCur[0]->id}})"> &nbsp;&nbsp; </button>
+                                            @if(\App\Task::taskIsAvailable($taskCur[0]->id))
+                                            <button id="checkBtn" type="button"
+                                                    class="btn rounded-circle btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}"
+                                                    onclick="changeColor({{$taskCur[0]->id}})"
+                                            >
+                                                &nbsp;&nbsp;
+                                            </button>
+                                            @else
+
+                                            <span class="btn rounded-circle btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}">
+                                                &nbsp;&nbsp;
+                                            </span>
+                                            @endif
                                     @endif
                                     </td>
                                 @endforeach
@@ -70,7 +82,6 @@
 
         function changeColor(task_id) {
 
-            // alert(task_id)
             $.ajax({
                 url: '/change_task_status',
                 type: 'POST',

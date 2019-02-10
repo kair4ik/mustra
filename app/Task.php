@@ -148,7 +148,9 @@ class Task extends Model
             if ($task->status_id == self::STATUS_NOT_PERFORMED) {
                 return "danger";
             }
-            $totalStatus = "success";
+            if ($task->status_id == self::STATUS_DONE || $task->status_id == self::STATUS_NOT_PERF_SPECIAL) {
+                $totalStatus = "success";
+            }
         }
 
         return $totalStatus;

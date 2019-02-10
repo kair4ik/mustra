@@ -41,7 +41,7 @@
                                     @endif
                                     </td>
                                 @endforeach
-                                <td><button type="button" class="btn btn-{{ \App\Task::getTotalByParam($list->id, $date) }}">{{ \App\Task::getTotalByParam($list->id, $date) }}</button></td>
+                                <td><button type="button" class="btn btn-{{ \App\Task::getTotalByParam($list->id, $date) }}">&nbsp;&nbsp;&nbsp;</button></td>
                             </tr>
                             @endfor
                             {{--<tr>--}}

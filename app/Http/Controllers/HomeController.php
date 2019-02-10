@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ListModel;
 use App\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $lists = ListModel::where('list_status_id', '=', '1')->get();
+        $user_id =  Auth::id();
+        $lists = ListModel::where('list_status_id', '=', '1')
+            ->where('author_id', '=', $user_id)
+            ->get();
 
         return view('home',[
             'lists' => $lists

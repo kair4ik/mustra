@@ -1,6 +1,10 @@
 @extends('layouts.myapp')
 
 @section('content')
+
+    <style>
+
+    </style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -37,7 +41,7 @@
                                 @endphp
                                     <td>
                                     @if(!empty($taskCur))
-                                    <button type="button" class="btn rounded-circle btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}" onclick="changeColor({{$taskCur[0]->id}})">&nbsp;{{$taskCur[0]->id}}&nbsp;&nbsp;</button>
+                                    <button id="checkBtn" type="button" class="btn rounded-circle btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}" onclick="changeColor({{$taskCur[0]->id}})"> &nbsp;&nbsp; </button>
                                     @endif
                                     </td>
                                 @endforeach

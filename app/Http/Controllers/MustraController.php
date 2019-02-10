@@ -72,4 +72,12 @@ class MustraController extends Controller
         return json_encode($taskName);
     }
 
+    public function change_task_status(Request $request)
+    {
+        $taskId = $request->taskId;
+        $task = Task::find($taskId);
+        $status_id = $task->changeStatus();
+        return $status_id;
+    }
+
 }

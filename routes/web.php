@@ -27,5 +27,6 @@ Route::get('/view/{id}', 'MustraController@show');
 
 Route::post('/save_list','MustraController@save_list');
 Route::post('/create_task','MustraController@create_task');
+Route::post('/change_task_status','MustraController@change_task_status');
 
 

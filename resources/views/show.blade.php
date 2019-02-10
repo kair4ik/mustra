@@ -37,7 +37,7 @@
                                 @endphp
                                     <td>
                                     @if(!empty($taskCur))
-                                    <button type="button" class="btn btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}">о</button>
+                                    <button type="button" class="btn rounded-circle btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}" onclick="changeColor({{$taskCur[0]->id}})">&nbsp;&nbsp;&nbsp;</button>
                                     @endif
                                     </td>
                                 @endforeach
@@ -60,6 +60,36 @@
         </div>
     </div>
 
+    <script>
 
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+
+        function changeColor(task_id) {
+
+            $.ajax({
+                url: '/change_task_status',
+                type: 'POST',
+
+                data: {_token: CSRF_TOKEN, taskId:task_id},
+                dataType: 'JSON',
+                beforeSend: function() {
+                    console.log("before");
+                },
+                success: function(data){
+
+                    console.log(data);
+                    location.reload();
+                }
+            });
+
+        }
+
+        $( document ).ready(function() {
+
+
+
+        });
+    </script>
 </div>
 @endsection

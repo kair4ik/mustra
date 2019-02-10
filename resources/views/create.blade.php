@@ -58,22 +58,22 @@
             $("#date_start").mask("9999.99.99");
 
 
-            $("#step1").click(function () {
-
-                    $.ajax({
-                        url: '/create_list',
-                        type: 'POST',
-
-                        data: {_token: CSRF_TOKEN},
-                        dataType: 'JSON',
-                        beforeSend: function() {
-                            console.log("before");
-                        },
-                        complete: function(data){
-                           console.log(data);
-                        }
-                    });
-            });
+            // $("#step1").click(function () {
+            //
+            //         $.ajax({
+            //             url: '/create_list',
+            //             type: 'POST',
+            //
+            //             data: {_token: CSRF_TOKEN},
+            //             dataType: 'JSON',
+            //             beforeSend: function() {
+            //                 console.log("before");
+            //             },
+            //             complete: function(data){
+            //                console.log(data);
+            //             }
+            //         });
+            // });
 
             $("#add_task").click(function () {
 

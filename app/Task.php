@@ -94,4 +94,38 @@ class Task extends Model
         }
         return "";
     }
+
+    public function changeStatus()
+    {
+        if ($this->isNotStatus() || $this->isNotPerfSpecial()) {
+            $this->status_id = 1;
+        } else if ($this->isDone()) {
+            $this->status_id = 2;
+        } else if ($this->isNotPerformed()) {
+            $this->status_id = 3;
+        }
+        $this->save();
+        return $this->status_id;
+    }
+
+    public function isNotStatus()
+    {
+        return $this->status_id == '0' ? true : false;
+    }
+
+    public function isDone()
+    {
+        return $this->status_id == '1' ? true : false;
+    }
+
+    public function isNotPerformed()
+    {
+        return $this->status_id == '2' ? true : false;
+    }
+
+    public function isNotPerfSpecial()
+    {
+        return $this->status_id == '3' ? true : false;
+    }
+
 }

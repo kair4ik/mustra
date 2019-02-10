@@ -11,7 +11,6 @@
             <div class="card">
                 <div class="card-header">{{$list->name}}</div>
 
-                <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -22,7 +21,7 @@
                             <thead class="thead-dark">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Дата</th>
+                                <th  scope="col">Дата:</th>
                                 @foreach($tasks as $task)
                                     {!!  "<th scope=\"col\">".$task."</th>"!!}
                                 @endforeach
@@ -34,12 +33,12 @@
 
                             <tr>
                                 <th scope="row">{{$i+1}}</th>
-                                <td>{{$date = $list->getDayFromDate($i)}}</td>
+                                <td class="align-bottom">{{$date = $list->getDayFromDate($i)}}</td>
                                 @foreach($tasks as $name)
                                 @php
                                  $taskCur  = \App\Task::getTaskByParam($name,$date, $list->id);
                                 @endphp
-                                    <td>
+                                    <td align="center">
                                     @if(!empty($taskCur))
                                     <button id="checkBtn" type="button" class="btn rounded-circle btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}" onclick="changeColor({{$taskCur[0]->id}})"> &nbsp;&nbsp; </button>
                                     @endif
@@ -59,7 +58,6 @@
                             {{--</tr>--}}
                             </tbody>
                         </table>
-                </div>
             </div>
 
         </div>

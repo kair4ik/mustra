@@ -15,7 +15,7 @@ class MustraController extends Controller
         $model = new Task();
 
         $list =  ListModel::create([
-            'date_start'=>date('d.m.Y',time()),
+            'date_start'=>date('Y-m-d',time()),
             'date_end'=> $model->getLastDay(),
             'author_id'=>Auth::id(),
         ]);

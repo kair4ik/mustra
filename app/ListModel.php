@@ -12,7 +12,7 @@ class ListModel extends Model
 
     public function getDayFromDate($days)
     {
-        return date('Y-m-d', strtotime($this->date_start. ' + '.$days.' days'));
+        return date('Y-m-d H:i:s', strtotime($this->date_start. ' + '.$days.' days'));
     }
 
 }

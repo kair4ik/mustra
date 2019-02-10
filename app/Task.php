@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\DB;
 class Task extends Model
 {
 
+    const STATUS_NOT_ACTIVE = 0;
+    const STATUS_DONE = 1;
+    const STATUS_NOT_PERFORMED = 2;
+    const STATUS_NOT_PERF_SPECIAL = 3;
+
     protected $fillable = ['list_id', 'name', 'date'];
     private $days = 10;
 
@@ -98,11 +103,11 @@ class Task extends Model
     public function changeStatus()
     {
         if ($this->isNotStatus() || $this->isNotPerfSpecial()) {
-            $this->status_id = 1;
+            $this->status_id = self::STATUS_DONE;
         } else if ($this->isDone()) {
-            $this->status_id = 2;
+            $this->status_id = self::STATUS_NOT_PERFORMED;
         } else if ($this->isNotPerformed()) {
-            $this->status_id = 3;
+            $this->status_id = self::STATUS_NOT_PERF_SPECIAL;
         }
         $this->save();
         return $this->status_id;
@@ -110,22 +115,22 @@ class Task extends Model
 
     public function isNotStatus()
     {
-        return $this->status_id == '0' ? true : false;
+        return $this->status_id == self::STATUS_NOT_ACTIVE ? true : false;
     }
 
     public function isDone()
     {
-        return $this->status_id == '1' ? true : false;
+        return $this->status_id == self::STATUS_DONE ? true : false;
     }
 
     public function isNotPerformed()
     {
-        return $this->status_id == '2' ? true : false;
+        return $this->status_id == self::STATUS_NOT_PERFORMED ? true : false;
     }
 
     public function isNotPerfSpecial()
     {
-        return $this->status_id == '3' ? true : false;
+        return $this->status_id == self::STATUS_NOT_PERF_SPECIAL ? true : false;
     }
 
 }

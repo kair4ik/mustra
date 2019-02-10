@@ -37,7 +37,7 @@
                                 @endphp
                                     <td>
                                     @if(!empty($taskCur))
-                                    <button type="button" class="btn rounded-circle btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}" onclick="changeColor({{$taskCur[0]->id}})">&nbsp;&nbsp;&nbsp;</button>
+                                    <button type="button" class="btn rounded-circle btn-{{\App\Task::getDescBy($taskCur[0]->status_id)}}" onclick="changeColor({{$taskCur[0]->id}})">&nbsp;{{$taskCur[0]->id}}&nbsp;&nbsp;</button>
                                     @endif
                                     </td>
                                 @endforeach
@@ -67,6 +67,7 @@
 
         function changeColor(task_id) {
 
+            // alert(task_id)
             $.ajax({
                 url: '/change_task_status',
                 type: 'POST',

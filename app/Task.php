@@ -21,7 +21,7 @@ class Task extends Model
         $datesArray = [];
         for($i=0;$i <= $this->days;$i++) {
             $t = strtotime('+'.$i.' day 00:00:00');
-            $datesArray[] = date('d.m.Y',$t);
+            $datesArray[] = date('Y-m-d',$t);
         }
         return $datesArray;
     }

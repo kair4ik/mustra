@@ -55,7 +55,7 @@
         $( document ).ready(function() {
 
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            $("#date_start").mask("9999.99.99");
+            // $("#date_start").mask("9999.99.99");
 
 
             // $("#step1").click(function () {

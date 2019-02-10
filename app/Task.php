@@ -30,8 +30,7 @@ class Task extends Model
 
     public function getLastDay()
     {
-        $dates = $this->getDatesArray();
-        $lastDate = end($dates);
+        $dates = $this->getDatesArray();$lastDate = end($dates);
         return $lastDate;
     }
 

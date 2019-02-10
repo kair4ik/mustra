@@ -133,4 +133,25 @@ class Task extends Model
         return $this->status_id == self::STATUS_NOT_PERF_SPECIAL ? true : false;
     }
 
+    static public function getTotalByParam($list_id, $date)
+    {
+        $totalStatus = "";
+        $tasks = DB::select(
+            'select * from tasks where list_id = :list_id  and  date = :date;',
+            [
+                'list_id'=>$list_id,
+                'date'=>$date,
+            ]);
+//        dd($tasks);
+        foreach ($tasks as $task){
+
+            if ($task->status_id == self::STATUS_NOT_PERFORMED) {
+                return "danger";
+            }
+            $totalStatus = "success";
+        }
+
+        return $totalStatus;
+    }
+
 }

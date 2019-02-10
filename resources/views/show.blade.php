@@ -41,17 +41,18 @@
                                     @endif
                                     </td>
                                 @endforeach
+                                <td><button type="button" class="btn btn-{{ \App\Task::getTotalByParam($list->id, $date) }}">{{ \App\Task::getTotalByParam($list->id, $date) }}</button></td>
                             </tr>
                             @endfor
-                            <tr>
-                                <th scope="row">Итог</th>
-                                <td></td>
-                                <td><button type="button" class="btn btn-info">80%</button></td>
-                                <td><button type="button" class="btn btn-info">100%</button></td>
-                                <td><button type="button" class="btn btn-info">80%</button></td>
-                                <td><button type="button" class="btn btn-info">100%</button></td>
-                                <td><button type="button" class="btn btn-info">90% (среднее арифметическое)</button></td>
-                            </tr>
+                            {{--<tr>--}}
+                                {{--<th scope="row">Итог</th>--}}
+                                {{--<td></td>--}}
+                                {{--<td><button type="button" class="btn btn-info">80%</button></td>--}}
+                                {{--<td><button type="button" class="btn btn-info">100%</button></td>--}}
+                                {{--<td><button type="button" class="btn btn-info">80%</button></td>--}}
+                                {{--<td><button type="button" class="btn btn-info">100%</button></td>--}}
+                                {{--<td><button type="button" class="btn btn-info">90% (среднее арифметическое)</button></td>--}}
+                            {{--</tr>--}}
                             </tbody>
                         </table>
                 </div>
